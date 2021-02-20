@@ -63,13 +63,20 @@ img {
 }
 
 /*Slide Count*/
-#slideCount{
-   width : 20%;
+#Count{
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+   grid-gap: 3%;
+   width : 50%;
    margin : 2% auto;
-   text-align: center;
-   font-size: 40px;
-   font-weight: 400;
-   background-color: rgb(164, 159, 211);
+   
+}
+.slideCountDesign{
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+  background-color: rgb(164, 159, 211);
+  border-radius: 10px;
 }
 /* Image SHOWCASE Styles*/
 #heading{

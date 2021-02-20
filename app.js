@@ -6,7 +6,10 @@ const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
 const selectedImages = document.getElementById('selectedImg');    // selected Images showcase part
-const slideCount = document.getElementById('slideCount');  // slideCount
+ // Count the  number of sliders display
+const number = document.getElementById('Count'); 
+const slideCount = document.getElementById('slideCount');  // display how much sliders is displayed
+const slideNumber = document.getElementById('slideNumber');  // shows the number of a slide
 // selected image 
 let sliders = [];
 var count = 0; 
@@ -86,7 +89,7 @@ const createSlider = () => {
     sliderContainer.appendChild(item)
     
 
-    // Image Showcasing (extra Feature)
+    // Image Showcasing (extraFeature1)
     let item2 = document.createElement('div');
     item2.className = "showItems";
     item2.innerHTML = `<img class="w-100 img-styles"
@@ -125,11 +128,14 @@ const changeSlide = (index) => {
   items.forEach(item => {
     item.style.display = "none"
   })
+
+  // slide Count (extraFeature2)
+  slideNumber.innerText=index+1;
   if(index==0){
      count++;
      slideCount.innerText = count;
-
   }
+  
   items[index].style.display = "block"
 }
 
@@ -150,3 +156,5 @@ sliderBtn.addEventListener('click', function () {
 
 
 
+// Image Showcasing (extraFeature1)
+// slide Count (extraFeature2)
