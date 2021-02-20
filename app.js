@@ -6,9 +6,10 @@ const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
 const selectedImages = document.getElementById('selectedImg');    // selected Images showcase part
+const slideCount = document.getElementById('slideCount');  // slideCount
 // selected image 
 let sliders = [];
-
+var count = 0; 
 
 // If this key doesn't work
 // Find the name in the url and go to their website
@@ -70,11 +71,12 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
+
   let duration = document.getElementById('duration').value || 1000 ;
-  
   if( duration < 0 ){
-    duration = 1000 ;
+    duration = 1000 ;   // negative input handling
   }
+
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
@@ -84,7 +86,7 @@ const createSlider = () => {
     sliderContainer.appendChild(item)
     
 
-    // Image Showcasing 
+    // Image Showcasing (extra Feature)
     let item2 = document.createElement('div');
     item2.className = "showItems";
     item2.innerHTML = `<img class="w-100 img-styles"
@@ -97,16 +99,14 @@ const createSlider = () => {
     slideIndex++;
     changeSlide(slideIndex);
   }, duration);
-
-  //selectedImages.innerText = sliders ;
+  
+  
 }
 
 // change slider index 
 const changeItem = index => {
   changeSlide(slideIndex += index);
 }
-
-
 
 // change slide item
 const changeSlide = (index) => {
@@ -125,7 +125,11 @@ const changeSlide = (index) => {
   items.forEach(item => {
     item.style.display = "none"
   })
+  if(index==0){
+     count++;
+     slideCount.innerText = count;
 
+  }
   items[index].style.display = "block"
 }
 
@@ -143,4 +147,6 @@ function eventResponse() {
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
+
+
 

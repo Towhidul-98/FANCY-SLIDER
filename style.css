@@ -62,10 +62,14 @@ img {
   }
 }
 
-/*Changing Duration Time*/
-#timeChange{
-  width : 60%;
-  margin : 3% auto;
+/*Slide Count*/
+#slideCount{
+   width : 20%;
+   margin : 2% auto;
+   text-align: center;
+   font-size: 40px;
+   font-weight: 400;
+   background-color: rgb(164, 159, 211);
 }
 /* Image SHOWCASE Styles*/
 #heading{
